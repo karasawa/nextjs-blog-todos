@@ -5,6 +5,7 @@ import Task from "../components/Task";
 import useSWR from "swr";
 import { useEffect } from "react";
 import { StateContextPrivider } from "../context/StateContext";
+import TaskForm from "../components/TaskForm";
 
 export async function getStaticProps() {
   const staticFilterdTasks = await getAllTasksData();
@@ -34,6 +35,7 @@ function TaskPage({ staticFilterdTasks }) {
   return (
     <StateContextPrivider>
       <Layout title="task-page">
+        <TaskForm taskCreated={mutate} />
         <ul>
           {filteredTasks &&
             filteredTasks.map((task) => (
