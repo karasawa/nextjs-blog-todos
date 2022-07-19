@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { task: staticTask } = getTaskData(params.id);
+  const staticTask = await getTaskData(params.id);
   return {
     props: {
       id: staticTask.id,
@@ -45,7 +45,7 @@ function Post({ staticTask, id }) {
   }
   return (
     <Layout title={task.title}>
-      <span className="mb-4">
+      <span className="mb-4 text-white">
         {"ID : "}
         {task.id}
       </span>
