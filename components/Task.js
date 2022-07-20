@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useContext } from "react";
 import Cookie from "universal-cookie";
-import { useContext } from "react";
 import { StateContext } from "../context/StateContext";
 
 const cookie = new Cookie();

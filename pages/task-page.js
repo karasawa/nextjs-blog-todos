@@ -4,7 +4,7 @@ import { getAllTasksData } from "../lib/tasks";
 import Task from "../components/Task";
 import useSWR from "swr";
 import { useEffect } from "react";
-import { StateContextPrivider } from "../context/StateContext";
+import StateContextProvider from "../context/StateContext";
 import TaskForm from "../components/TaskForm";
 
 export async function getStaticProps() {
@@ -33,7 +33,7 @@ function TaskPage({ staticFilterdTasks }) {
   }, []);
 
   return (
-    <StateContextPrivider>
+    <StateContextProvider>
       <Layout title="task-page">
         <TaskForm taskCreated={mutate} />
         <ul>
@@ -62,7 +62,7 @@ function TaskPage({ staticFilterdTasks }) {
           </div>
         </Link>
       </Layout>
-    </StateContextPrivider>
+    </StateContextProvider>
   );
 }
 
